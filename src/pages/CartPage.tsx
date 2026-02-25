@@ -2,14 +2,18 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, Trash2, ShieldCheck, Scale, ShoppingBag } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useCart } from "@/hooks/useCart";
+import { useAuth } from "@/hooks/useAuth";
 
 export default function CartPage() {
     const { cartItems, removeFromCart, updateQuantity, cartTotal } = useCart();
+    const { isAuthenticated } = useAuth();
     const [checkoutStep, setCheckoutStep] = useState<"cart" | "checkout">("cart");
+
+    if (!isAuthenticated) return <Navigate to="/login" replace />;
 
     const deliveryFee = 150;
     const totalWithDelivery = cartItems.length > 0 ? cartTotal + deliveryFee : 0;

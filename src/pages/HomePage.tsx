@@ -1,4 +1,6 @@
 "use client";
+import { useNavigate } from "react-router-dom";
+
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -66,6 +68,8 @@ export default function HomePage() {
   const { addToCart } = useCart();
   const { addToast } = useToast();
   const { role } = useAuth();
+  const { isAuthenticated } = useAuth();
+   const navigate = useNavigate();
 
   if (role === "seller") return <Navigate to="/inventory" replace />;
   if (role === "admin") return <Navigate to="/dashboard" replace />;
@@ -84,7 +88,11 @@ export default function HomePage() {
       estimatedWeight: product.estimatedWeight || undefined,
       uin: product.uin || undefined
     });
-    addToast(`✅ Added ${product.name} to your cart.`);
+    //correct here
+     if (isAuthenticated) {
+           
+       addToast(`✅ Added ${product.name} to your cart.`);
+        }
   };
 
   return (

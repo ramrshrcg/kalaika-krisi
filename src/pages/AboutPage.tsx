@@ -1,26 +1,31 @@
 import { Leaf, Award, Globe, Users, ShieldCheck, Sprout } from "lucide-react";
 import { motion } from "framer-motion";
-import formers_working_in_the_field from "../assets/image/Ramesh_working.jpg";
-import rpg from "../assets/image/rpg.png";
+import { image } from "../hooks/useImage";
+
+
+
 
 const FOUNDERS = [
     {
         initials: "RPG",
         name: "Ram Pyari Ghimire",
         role: "Founder & Lead Farmer",
-        description: "A visionary agriculturist with over 15 years of hands-on experience in organic farming and sustainable livestock management in Nepal. Ram spearheads our agricultural operations."
+        description: "A visionary agriculturist with over 15 years of hands-on experience in organic farming and sustainable livestock management in Nepal. Ram spearheads our agricultural operations.",
+        image: image.rpg
     },
     {
         initials: "RCG",
         name: "Ram Chandra Ghimire ",
         role: "Co-Founder & Tech Lead",
-        description: "Bringing Silicon Valley tech to rural Nepal, Ram Chandra Ghimire engineered the digital platform that connects our farm directly to your table, ensuring fair prices and unmatched freshness."
+        description: "Bringing Silicon Valley tech to rural Nepal, Ram Chandra Ghimire engineered the digital platform that connects our farm directly to your table, ensuring fair prices and unmatched freshness.",
+        image: image.ramesh
     },
     {
         initials: "PG",
         name: "Prakash Gurung",
         role: "Head of JTA Consultations",
-        description: "An expert agronomist and certified JTA. Prakash ensures that our crops and livestock are raised following the highest scientific and ethical standards."
+        description: "An expert agronomist and certified JTA. Prakash ensures that our crops and livestock are raised following the highest scientific and ethical standards.",
+        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=256&auto=format&fit=crop"
     }
 ];
 
@@ -90,7 +95,7 @@ export default function AboutPage() {
                         </div>
                         <div className="flex-1 relative">
                             <div className="aspect-square bg-slate-100 rounded-3xl overflow-hidden shadow-2xl border-8 border-white transform rotate-3 transition-transform hover:rotate-0 duration-500">
-                                <img src={formers_working_in_the_field} alt="Farmers working in the field" className="w-full h-full object-cover" />
+                                <img src={image.farmers_working_in_the_field} alt="Farmers working in the field" className="w-full h-full object-cover" />
                             </div>
                             <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl flex items-center gap-4">
                                 <div className="bg-primary-100 text-primary-600 p-3 rounded-full">
@@ -147,9 +152,15 @@ export default function AboutPage() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {FOUNDERS.map((founder, idx) => (
                             <div key={idx} className="bg-primary-800/50 backdrop-blur-sm border border-primary-700 p-8 rounded-3xl hover:bg-primary-800 transition-colors">
-                                <div className="w-20 h-20 bg-primary-600 rounded-2xl flex items-center justify-center text-2xl font-black shadow-lg mb-6 rotate-3">
-                                    {founder.initials}
-                                </div>
+                                {founder.image ? (
+                                    <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-lg mb-6 rotate-3">
+                                        <img src={founder.image} alt={founder.name} className="w-full h-full object-cover" />
+                                    </div>
+                                ) : (
+                                    <div className="w-20 h-20 bg-primary-600 rounded-2xl flex items-center justify-center text-2xl font-black shadow-lg mb-6 rotate-3">
+                                        {founder.initials}
+                                    </div>
+                                )}
                                 <h3 className="text-2xl font-bold mb-1">{founder.name}</h3>
                                 <p className="text-primary-300 font-medium mb-4">{founder.role}</p>
                                 <p className="text-primary-100/80 leading-relaxed text-sm">

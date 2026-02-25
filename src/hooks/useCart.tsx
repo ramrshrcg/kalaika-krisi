@@ -1,6 +1,8 @@
 "use client";
 
 import { createContext, useContext, useState, ReactNode } from "react";
+import { useAuth } from "@/hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export interface CartItem {
     id: number;
@@ -27,8 +29,15 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
     const [cartItems, setCartItems] = useState<CartItem[]>([]);
+    const { isAuthenticated } = useAuth();
+    const navigate = useNavigate();
 
     const addToCart = (newItem: CartItem) => {
+        if (!isAuthenticated) {
+            navigate("/login");
+            return;
+        }
+
         setCartItems(prev => {
             const existing = prev.find(item => item.id === newItem.id);
             if (existing) {

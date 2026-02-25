@@ -24,8 +24,8 @@ function App() {
     return (
         <Router>
             <ToastProvider>
-                <CartProvider>
-                    <AuthProvider>
+                <AuthProvider>
+                    <CartProvider>
                         <MainLayout>
                             <Routes>
                                 <Route path="/" element={<HomePage />} />
@@ -45,10 +45,10 @@ function App() {
                                 <Route path="/about" element={<AboutPage />} />
                             </Routes>
                         </MainLayout>
-                    </AuthProvider>
-                </CartProvider>
+                    </CartProvider>
+                </AuthProvider>
             </ToastProvider>
-        </Router>
+        </Router >
     );
 }
 
