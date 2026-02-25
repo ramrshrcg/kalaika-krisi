@@ -17,6 +17,8 @@ export default function RegisterPage() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [phoneNo, setPhoneNo] = useState("");
+
 
     const handleRegister = (e: React.FormEvent) => {
         e.preventDefault();
@@ -94,6 +96,19 @@ export default function RegisterPage() {
                                             onChange={(e) => setName(e.target.value)}
                                         />
                                     </div>
+                                     <div className="space-y-2">
+                                        <label className="text-sm font-medium text-slate-700" htmlFor="phoneNo">Phone Number</label>
+                                        <input
+                                            id="phoneNo"
+                                            type="number"
+                                            required
+                                            className="flex h-10 w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                                            placeholder="9800000000"
+                                            value={phoneNo}
+                                            onChange={(e) => setPhoneNo(e.target.value)}
+                                        />
+                                    </div>
+
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-slate-700" htmlFor="email">Email</label>
                                         <input
@@ -106,6 +121,7 @@ export default function RegisterPage() {
                                             onChange={(e) => setEmail(e.target.value)}
                                         />
                                     </div>
+
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-slate-700" htmlFor="password">Create Password</label>
                                         <input

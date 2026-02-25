@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import CartPage from "./pages/CartPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import MarketPage from "./pages/MarketPage";
@@ -12,6 +13,7 @@ import OrdersPage from "./pages/OrdersPage";
 import ConsultationsPage from "./pages/ConsultationsPage";
 import DashboardPage from "./pages/DashboardPage";
 import SettingsPage from "./pages/SettingsPage";
+import AboutPage from "./pages/AboutPage";
 
 import { ToastProvider } from "@/hooks/useToast";
 import { CartProvider } from "@/hooks/useCart";
@@ -29,6 +31,7 @@ function App() {
                                 <Route path="/" element={<HomePage />} />
                                 <Route path="/login" element={<LoginPage />} />
                                 <Route path="/register" element={<RegisterPage />} />
+                                <Route path="/forgot-password" element={<ForgotPasswordPage />} />
                                 <Route path="/cart" element={<CartPage />} />
                                 <Route path="/product/:id" element={<ProductDetailPage />} />
                                 <Route path="/market" element={<MarketPage />} />
@@ -39,6 +42,7 @@ function App() {
                                 <Route path="/consultations" element={<ConsultationsPage />} />
                                 <Route path="/dashboard" element={<DashboardPage />} />
                                 <Route path="/settings" element={<SettingsPage />} />
+                                <Route path="/about" element={<AboutPage />} />
                             </Routes>
                         </MainLayout>
                     </AuthProvider>

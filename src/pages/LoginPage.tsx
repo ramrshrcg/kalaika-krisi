@@ -15,7 +15,7 @@ export default function LoginPage() {
 
     // Mock Form State
     const [email, setEmail] = useState("a@gmail.com");
-    const [password, setPassword] = useState("Heto@123%^&");
+    const [password, setPassword] = useState("Hero@123%^&");
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
@@ -69,8 +69,8 @@ export default function LoginPage() {
                                                 type="button"
                                                 onClick={() => setSelectedRole(r.id)}
                                                 className={`flex flex-col items-center justify-center p-3 rounded-xl border-2 transition-all ${selectedRole === r.id
-                                                        ? "border-primary-500 bg-primary-50 text-primary-800"
-                                                        : "border-slate-100 bg-white hover:border-slate-200 text-slate-600"
+                                                    ? "border-primary-500 bg-primary-50 text-primary-800"
+                                                    : "border-slate-100 bg-white hover:border-slate-200 text-slate-600"
                                                     }`}
                                             >
                                                 <span className="text-sm font-bold mb-0.5">{r.title}</span>
@@ -96,7 +96,7 @@ export default function LoginPage() {
                                     <div className="space-y-2">
                                         <div className="flex items-center justify-between">
                                             <label className="text-sm font-medium text-slate-700" htmlFor="password">Password</label>
-                                            <Link to="#" className="text-xs font-medium text-primary-600 hover:text-primary-500">
+                                            <Link to="/forgot-password" className="text-xs font-medium text-primary-600 hover:text-primary-500">
                                                 Forgot password?
                                             </Link>
                                         </div>

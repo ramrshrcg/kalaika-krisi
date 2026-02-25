@@ -117,9 +117,10 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
                         <Leaf className="h-5 w-5 text-primary-200" />
                         <span>&copy; 2026 Kalika Krisi Tatha Pashupanchi Farm. All rights reserved.</span>
                     </div>
-                    <div className="flex gap-4">
-                        <Link to="#" className="hover:text-primary-600">Privacy</Link>
-                        <Link to="#" className="hover:text-primary-600">Terms</Link>
+                    <div className="flex gap-5 font-medium">
+                        <Link to="/about" className="hover:text-primary-600 transition-colors">About Us</Link>
+                        <Link to="#" className="hover:text-primary-600 transition-colors">Privacy</Link>
+                        <Link to="#" className="hover:text-primary-600 transition-colors">Terms</Link>
                     </div>
                 </div>
             </footer>
