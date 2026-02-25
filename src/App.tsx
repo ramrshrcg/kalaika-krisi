@@ -14,6 +14,8 @@ import ConsultationsPage from "./pages/ConsultationsPage";
 import DashboardPage from "./pages/DashboardPage";
 import SettingsPage from "./pages/SettingsPage";
 import AboutPage from "./pages/AboutPage";
+import PrivacyPage from "./pages/PrivacyPage";
+import TermsPage from "./pages/TermsPage";
 
 import { ToastProvider } from "@/hooks/useToast";
 import { CartProvider } from "@/hooks/useCart";
@@ -43,6 +45,8 @@ function App() {
                                 <Route path="/dashboard" element={<DashboardPage />} />
                                 <Route path="/settings" element={<SettingsPage />} />
                                 <Route path="/about" element={<AboutPage />} />
+                                <Route path="/privacy" element={<PrivacyPage />} />
+                                <Route path="/terms" element={<TermsPage />} />
                             </Routes>
                         </MainLayout>
                     </CartProvider>

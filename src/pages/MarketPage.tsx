@@ -6,78 +6,86 @@ import { useCart } from "@/hooks/useCart";
 import { useToast } from "@/hooks/useToast";
 import { motion } from "framer-motion";
 
-const ALL_PRODUCTS = [
+import { product_image } from "@/hooks/useImage";
+
+export const ALL_PRODUCTS = [
     {
         id: 1,
         name: "Organic Jumla Marsi Rice",
         price: 250,
         unit: "per kg",
-        image: "https://images.unsplash.com/photo-1568569350062-ebfa3cb195df?q=80&w=600&auto=format&fit=crop",
+        image: product_image.rice_image, // Brown rice
         category: "Grain",
         tag: "Fresh Harvest",
         isCatchWeight: false,
         estimatedWeight: null,
         uin: null,
+        description: "Organic Jumla Marsi Rice from Jumla, Nepal. Known for its unique aroma and taste. Rich in antioxidants and minerals.",
     },
     {
         id: 2,
         name: "Free-Range Kadaknath Chicken",
         price: 1200,
         unit: "per bird (est. 1.5kg)",
-        image: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?q=80&w=600&auto=format&fit=crop",
+        image: product_image.chicken_image, // Chicken
         category: "Livestock",
         tag: "Catch-Weight",
         isCatchWeight: true,
         estimatedWeight: 1.5,
         uin: "UIN1234567890",
+        description: "Free-Range Kadaknath Chicken from Kalika Krisi Farm. Known for its unique black meat and rich flavor. High in protein and low in fat.",
     },
     {
         id: 3,
         name: "Pure Mustard Oil",
         price: 380,
         unit: "per Liter",
-        image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=600&auto=format&fit=crop",
+        image: product_image.oil_image, // Local imported image
         category: "Pantry",
         tag: "Bestseller",
         isCatchWeight: false,
         estimatedWeight: null,
         uin: null,
+        description: "Pure Mustard Oil from Kalika Krisi Farm. Cold-pressed and free from additives. Rich in monounsaturated fats and antioxidants.",   
     },
     {
         id: 4,
         name: "Seasonal Organic Vegetables Box",
         price: 850,
         unit: "per Box (5kg)",
-        image: "https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=600&auto=format&fit=crop",
+        image: product_image.veggies_image, // Veggies
         category: "Produce",
         tag: "Subscription",
         isCatchWeight: false,
         estimatedWeight: null,
-        uin: null,
+        uin: null,  
+        description: "Seasonal Organic Vegetables Box from Kalika Krisi Farm. Fresh, organic vegetables harvested at peak season. Rich in vitamins and minerals.",
     },
     {
         id: 5,
         name: "Himalayan Raw Honey",
         price: 1500,
         unit: "per kg",
-        image: "https://images.unsplash.com/photo-1587049352847-4d4b12fe3488?q=80&w=600&auto=format&fit=crop",
+        image: product_image.honey_image, // Honey
         category: "Pantry",
         tag: "Organic",
         isCatchWeight: false,
         estimatedWeight: null,
         uin: null,
+        description: "Himalayan Raw Honey from Kalika Krisi Farm. Pure, unprocessed honey collected from Himalayan wildflowers. Rich in antioxidants and minerals.",    
     },
     {
         id: 6,
         name: "Farm Fresh Eggs",
         price: 450,
         unit: "per crate (30 pcs)",
-        image: "https://images.unsplash.com/photo-1506976785307-8732e854d14c?q=80&w=600&auto=format&fit=crop",
+        image: product_image.egg_image, // Eggs
         category: "Livestock",
         tag: "Daily Need",
         isCatchWeight: false,
         estimatedWeight: null,
         uin: null,
+        description: "Farm Fresh Eggs from Kalika Krisi Farm. Fresh, organic eggs collected daily. Rich in protein and minerals.",
     }
 ];
 
@@ -146,8 +154,8 @@ export default function MarketPage() {
                             key={category}
                             onClick={() => setActiveCategory(category)}
                             className={`px-5 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-all ${activeCategory === category
-                                    ? "bg-primary-600 text-white shadow-md shadow-primary-900/10"
-                                    : "bg-white text-slate-600 hover:bg-primary-50 hover:text-primary-700 border border-slate-200"
+                                ? "bg-primary-600 text-white shadow-md shadow-primary-900/10"
+                                : "bg-white text-slate-600 hover:bg-primary-50 hover:text-primary-700 border border-slate-200"
                                 }`}
                         >
                             {category}

@@ -9,34 +9,10 @@ import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
 import { useCart } from "@/hooks/useCart";
 import { useToast } from "@/hooks/useToast";
+import { ALL_PRODUCTS } from "./MarketPage";
 
 // Mock Database
-const PRODUCTS = [
-    {
-        id: 1,
-        name: "Organic Jumla Marsi Rice",
-        price: 250,
-        unit: "per kg",
-        image: "https://images.unsplash.com/photo-1568569350062-ebfa3cb195df?q=80&w=600&auto=format&fit=crop",
-        category: "Grain",
-        tag: "Fresh Harvest",
-        isCatchWeight: false,
-        description: "Authentic Marsi rice grown in the high altitudes of Jumla. Packed with distinct flavor and nutritional benefits, directly sourced from Kalika Krisi cooperative."
-    },
-    {
-        id: 2,
-        name: "Free-Range Kadaknath Chicken",
-        price: 1200,
-        unit: "per kg",
-        image: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?q=80&w=600&auto=format&fit=crop",
-        category: "Livestock",
-        tag: "Catch-Weight",
-        isCatchWeight: true,
-        uin: "KRN-1029-4821",
-        estimatedWeight: 1.5,
-        description: "Premium free-range Kadaknath chicken raised without antibiotics. This is a catch-weight item: you authorization is for estimated weight, final price adjusts to exact packed weight."
-    },
-];
+const PRODUCTS = ALL_PRODUCTS;
 
 export default function ProductDetailPage() {
     const params = useParams();
@@ -58,8 +34,8 @@ export default function ProductDetailPage() {
             image: product.image,
             quantity: quantity,
             isCatchWeight: product.isCatchWeight,
-            estimatedWeight: product.estimatedWeight,
-            uin: product.uin
+            estimatedWeight: product.estimatedWeight || undefined,
+            uin: product.uin || undefined
         });
         addToast(`✅ Added ${quantity} of ${product.name} to your cart.`);
     };

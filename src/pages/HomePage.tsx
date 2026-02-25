@@ -12,56 +12,9 @@ import { useToast } from "@/hooks/useToast";
 import { motion } from "framer-motion";
 import { useAuth } from "@/hooks/useAuth";
 
-const PRODUCTS = [
-  {
-    id: 1,
-    name: "Organic Jumla Marsi Rice",
-    price: 250, // Changed to number
-    unit: "per kg",
-    image: "https://images.unsplash.com/photo-1568569350062-ebfa3cb195df?q=80&w=600&auto=format&fit=crop",
-    category: "Grain",
-    tag: "Fresh Harvest",
-    isCatchWeight: false, // Added
-    estimatedWeight: null, // Added
-    uin: null, // Added
-  },
-  {
-    id: 2,
-    name: "Free-Range Kadaknath Chicken",
-    price: 1200, // Changed to number
-    unit: "per bird (est. 1.5kg)",
-    image: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?q=80&w=600&auto=format&fit=crop",
-    category: "Livestock",
-    tag: "Catch-Weight",
-    isCatchWeight: true, // Added
-    estimatedWeight: 1.5, // Added
-    uin: "UIN1234567890", // Added
-  },
-  {
-    id: 3,
-    name: "Pure Mustard Oil",
-    price: 380, // Changed to number
-    unit: "per Liter",
-    image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=600&auto=format&fit=crop",
-    category: "Pantry",
-    tag: "Bestseller",
-    isCatchWeight: false, // Added
-    estimatedWeight: null, // Added
-    uin: null, // Added
-  },
-  {
-    id: 4,
-    name: "Seasonal Organic Vegetables Box",
-    price: 850, // Changed to number
-    unit: "per Box (5kg)",
-    image: "https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=600&auto=format&fit=crop",
-    category: "Produce",
-    tag: "Subscription",
-    isCatchWeight: false, // Added
-    estimatedWeight: null, // Added
-    uin: null, // Added
-  },
-];
+import { ALL_PRODUCTS } from "./MarketPage";
+
+const PRODUCTS = ALL_PRODUCTS.slice(0, 4);
 
 export default function HomePage() {
   const [email, setEmail] = useState(""); // Added, though not used in this snippet
@@ -69,7 +22,7 @@ export default function HomePage() {
   const { addToast } = useToast();
   const { role } = useAuth();
   const { isAuthenticated } = useAuth();
-   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   if (role === "seller") return <Navigate to="/inventory" replace />;
   if (role === "admin") return <Navigate to="/dashboard" replace />;
@@ -89,10 +42,10 @@ export default function HomePage() {
       uin: product.uin || undefined
     });
     //correct here
-     if (isAuthenticated) {
-           
-       addToast(`✅ Added ${product.name} to your cart.`);
-        }
+    if (isAuthenticated) {
+
+      addToast(`✅ Added ${product.name} to your cart.`);
+    }
   };
 
   return (

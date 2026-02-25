@@ -119,8 +119,8 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
                     </div>
                     <div className="flex gap-5 font-medium">
                         <Link to="/about" className="hover:text-primary-600 transition-colors">About Us</Link>
-                        <Link to="#" className="hover:text-primary-600 transition-colors">Privacy</Link>
-                        <Link to="#" className="hover:text-primary-600 transition-colors">Terms</Link>
+                        <Link to="/privacy" className="hover:text-primary-600 transition-colors">Privacy</Link>
+                        <Link to="/terms" className="hover:text-primary-600 transition-colors">Terms</Link>
                     </div>
                 </div>
             </footer>
